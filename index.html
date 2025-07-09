@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hola Amy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(120deg, #ffe6e6, #fa1ba4);
+      color: #333;
+      text-align: center;
+      padding: 30px 15px;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      margin-top: 20px;
+      font-size: 2.2em;
+      color: #df199d;
+    }
+
+    p {
+      font-size: 1.1em;
+      margin: 20px auto;
+      max-width: 600px;
+    }
+
+    img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid white;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      margin-top: 15px;
+      animation: pulse 3s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .btn {
+      margin-top: 30px;
+      padding: 12px 25px;
+      font-size: 1em;
+      border: none;
+      background-color: #e243ad;
+      color: white;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #d2389c;
+    }
+
+    .corazon {
+      position: absolute;
+      animation: flotar 5s linear infinite;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    @keyframes flotar {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-100vh) scale(1.2); opacity: 0; }
+    }
+
+    /* 📱 Estilo específico para móviles */
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.8em;
+      }
+
+      p {
+        font-size: 1em;
+      }
+
+      img {
+        width: 140px;
+        height: 140px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Hola Amy 👋</h1>
+  <img src="amy.jpg.jpeg" alt="Foto de Amy">
+  <p>Hace tiempo que no hablamos, pero quise hacer este pequeño detalle para recordarte que hay personas que aún te recuerdan con aprecio. Espero que estés bien y que la vida te esté sonriendo donde estés.</p>
+
+  <button class="btn" onclick="mostrarCorazones()">Un saludo desde lejos ❤️</button>
+
+  <script>
+    function crearCorazon() {
+      const corazon = document.createElement('div');
+      corazon.classList.add('corazon');
+      corazon.textContent = '💖';
+      corazon.style.left = Math.random() * 100 + 'vw';
+      corazon.style.fontSize = (Math.random() * 20 + 20) + 'px';
+      corazon.style.top = '100vh';
+      document.body.appendChild(corazon);
+      setTimeout(() => corazon.remove(), 5000);
+    }
+
+    function mostrarCorazones() {
+      for (let i = 0; i < 20; i++) {
+        setTimeout(crearCorazon, i * 150);
+      }
+    }
+  </script>
+
+</body>
+</html>
